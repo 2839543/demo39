@@ -16,17 +16,15 @@ if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
 define('APP_DEBUG',True);
-
+//默认加载Admin模块
+$_GET['m'] = 'Admin';
+//默认加载Admin控制器
+//$_GET['c'] = 'Admin';
+$_GET['c'] = 'Index';
 // 定义应用目录
-define('APP_PATH','./Admin/');
-//define('APP_PATH','./Weibo/');
+//define('APP_PATH','./Application/');
+define('APP_PATH','./Weibo/');
 
-//设定目录生成的文件
-define('DIR_SECURE_FILENAME','default.html');
-//设置目录页面内容
-define('DIR_SECURE_CONTENT','目录禁止');
-//禁止目录主页生成
-define('BUILD_DIR_SECURE',false);
 // 引入ThinkPHP入口文件
 require './Think/ThinkPHP.php';
 
