@@ -14,5 +14,7 @@ class UserModel extends Model
 //    protected $tableName='abc';
 //        protected  $trueTableName = 'tp_abc';
 //    protected $dbName = 'zhiwen';
+    protected $insertFields = 'email';
+    protected $updateFields = 'email';
 }
 

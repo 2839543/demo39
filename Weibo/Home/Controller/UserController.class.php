@@ -12,24 +12,36 @@ class UserController extends Controller {
         echo 'user:'.$user.'<br/>pass:'.$pass;
     }
     public function model(){
-        $user = M('User');
-//        var_dump($user->where('id>1')->order('date ')->select());
-//        var_dump($user->select(array('where'=>array('id'=>array('neq','1')),'order'=>'id desc','limit'=>'3')));
-//        var_dump($user->where('id in (1,2,3,4)') ->find( ));
-//        var_dump($user->where('id = 5 ')->delete());
-//        var_dump($user->select());
-//        $map ['id'] = 2 ;
-//        var_dump($user->where($map)->where('user="蜡笔小新"')->select());
-//        var_dump($user->field('id,user')->select());
+   }
 
-//        var_dump($user->limit(3)->select());
-//                var_dump($user->limit(1,3)->select());
-//        var_dump($user->page(3,2)->select());
-//        var_dump($user->table('think_info')->select());
-//          var_dump($user->table('__USER__')->select());
-//          var_dump($user->table('__INFO__')->select());
-        var_dump($user->field('a.id,a.user,b.id,b.user')->table('__USER__ a,__INFO__ b')->select());
+    public function create(){
+        $user = D('User');
+//        $data['user']='樱桃小丸子';
+//        $data['email']= 'wanzi@163.com';
+
+//        $data['user']=$_POST['user'];
+//        $data['email']=$_POST['email'];
+//        $data['date']=date('Y-m-d H:i:s');
+//        $data =  new \stdClass();
+//        $data -> user = $_POST['user'];
+//        $data -> email = $_POST['email'];
+//        $data-> date = date('Y-m-d H:i:s');
+
+//        var_dump($user->create($_POST,Model::MODEL_INSERT));
+//            var_dump($user->field('user')->create());
+        var_dump($user->create());
     }
+    public function add(){
+        $user = M('User');
+//        $data['user']='李彦辉';
+//        $data['email']='yanhui@163.com';
+//        $data['date']=date('Y-m-d H:i:s');
+//        $user->add($data);
 
-
+//        $user = M('User');
+//       $data = $user -> create();
+//        $data['date'] = date('Y-m-d H:i:s');
+        $data = 'user=星矢&email=xinshi@qq.com&date='.date('Y-m-d H:i:s');
+        $user->data($data) ->add();
+    }
 }
