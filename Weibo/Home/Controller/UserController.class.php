@@ -32,16 +32,25 @@ class UserController extends Controller {
         var_dump($user->create());
     }
     public function add(){
+//        $user = D('User');
+//        $data ['user']='用户';
+//        $data['email']='小明啊啊';
+////        $data ['user']='';
+//        if($user->create($data)){
+//            echo '所有字段验证成功';
+//        }else{
+////            var_dump($user->getError());
+//            $this->ajaxReturn($user->getError());
+//        }
+        $rules = array(
+            array('user','require','用户名不得为空'),
+        );
         $user = M('User');
-//        $data['user']='李彦辉';
-//        $data['email']='yanhui@163.com';
-//        $data['date']=date('Y-m-d H:i:s');
-//        $user->add($data);
-
-//        $user = M('User');
-//       $data = $user -> create();
-//        $data['date'] = date('Y-m-d H:i:s');
-        $data = 'user=星矢&email=xinshi@qq.com&date='.date('Y-m-d H:i:s');
-        $user->data($data) ->add();
+        $data['user']='';
+        if($user->validate($rules)->create($data)){
+            echo '所有字段验证成功';
+        }else{
+            var_dump($user->getError());
+        }
     }
 }
